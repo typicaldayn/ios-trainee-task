@@ -69,7 +69,18 @@ extension PostsVC: UITableViewDelegate, UITableViewDataSource {
             cell.postPreview.text = posts.postsArray[indexPath.row].preview_text
             cell.postLikes.text = String("❤️\(posts.postsArray[indexPath.row].likes_count)")
             
-            cell.but.addTarget(self, action: #selector(self.expandCollapse(sender:)), for: .touchUpInside)
+//            cell.but.addTarget(self, action: #selector(self.expandCollapse(sender:)), for: .touchUpInside)
+            cell.button = {[unowned self] in
+                if cell.postPreview.numberOfLines == 2 {
+                    cell.but.titleLabel?.text = "Collapse"
+                    cell.postPreview.numberOfLines = 0
+                    cell.textHeight.constant = 100
+                }else if cell.postPreview.numberOfLines == 0 {
+                    cell.but.titleLabel?.text = "Expand"
+                    cell.postPreview.numberOfLines = 2
+                    cell.textHeight.constant = 50
+                }
+            }
             
             let previousDate = Date(timeIntervalSince1970: TimeInterval(posts.postsArray[indexPath.row].timeshamp))
             let now = Date()
@@ -89,9 +100,9 @@ extension PostsVC: UITableViewDelegate, UITableViewDataSource {
         }
     }
     
-    @objc func expandCollapse(sender: UIButton) {
-        self.tableView.reloadData()
-    }
+//    @objc func expandCollapse(sender: UIButton) {
+//        self.tableView.reloadData()
+//    }
     
     func tableView(_ tableView: UITableView, didSelectRowAt indexPath: IndexPath) {
         K.postId = K.iD[indexPath.row]

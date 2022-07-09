@@ -43,14 +43,14 @@ class PostVC: UIViewController {
 
     func updateUI() {
 
-        let previousDate = Date(timeIntervalSince1970: TimeInterval((post.post.timeshamp ?? 1)))
+        let previousDate = Date(timeIntervalSince1970: TimeInterval((post.post.timeshamp)))
         let now = Date()
         let formatter = DateComponentsFormatter()
         formatter.unitsStyle = .brief
         formatter.allowedUnits = [.day]
         formatter.maximumUnitCount = 1
         let stringDate = formatter.string(from: previousDate, to: now)
-        let url = URL(string: (post.post.postImage) ?? "")
+        let url = URL(string: (post.post.postImage))
         downloadImage(from: url!)
         postDate.text = stringDate
         postName.text = post.post.title

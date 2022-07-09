@@ -7,9 +7,9 @@
 
 import UIKit
 
-class PostsCell: UITableViewCell, UITextViewDelegate {
+class PostsCell: UITableViewCell {
     
-    var postID = 0
+    var button: (() -> ())?
     
     @IBOutlet weak var textHeight: NSLayoutConstraint!
     @IBOutlet weak var but: UIButton!
@@ -39,16 +39,17 @@ class PostsCell: UITableViewCell, UITextViewDelegate {
     
     @IBAction func expandPressed(_ sender: UIButton) {
         DispatchQueue.main.async {
-            if self.postPreview.numberOfLines == 2{
-                self.but.titleLabel?.text = "Collapse"
-                self.textHeight.constant = 200
-                self.postPreview.numberOfLines = 0
-            }else{
-                self.but.titleLabel?.text = "Expand"
-                print(self.but.titleLabel?.text)
-                self.textHeight.constant = 60
-                self.postPreview.numberOfLines = 2
-            }
+            self.button?()
+//            if self.postPreview.numberOfLines == 2{
+//                self.but.titleLabel?.text = "Collapse"
+//                self.textHeight.constant = 200
+//                self.postPreview.numberOfLines = 0
+//            }else{
+//                self.but.titleLabel?.text = "Expand"
+//                print(self.but.titleLabel?.text)
+//                self.textHeight.constant = 60
+//                self.postPreview.numberOfLines = 2
+//            }
         }
     }
 }
