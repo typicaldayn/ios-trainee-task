@@ -9,7 +9,6 @@ import Foundation
 
 struct K {
     static let urlPosts = "https://raw.githubusercontent.com/anton-natife/jsons/master/api/main.json"
-    static var urlPost = "https://raw.githubusercontent.com/anton-natife/jsons/master/api/posts/111.json"
     static let cellId = "ReusableCell"
     static let nibName = "PostsCell"
     static var iD: [Int] = []
