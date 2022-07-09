@@ -8,7 +8,6 @@
 
 /* Begin PBXBuildFile section */
 		BE1E534F2878372400EC9BFA /* PostVC.swift in Sources */ = {isa = PBXBuildFile; fileRef = BE1E534E2878372400EC9BFA /* PostVC.swift */; };
-		BE1E5351287859FA00EC9BFA /* Extension.swift in Sources */ = {isa = PBXBuildFile; fileRef = BE1E5350287859FA00EC9BFA /* Extension.swift */; };
 		BE5C0B9C287738E60043D0E4 /* AppDelegate.swift in Sources */ = {isa = PBXBuildFile; fileRef = BE5C0B9B287738E60043D0E4 /* AppDelegate.swift */; };
 		BE5C0B9E287738E60043D0E4 /* SceneDelegate.swift in Sources */ = {isa = PBXBuildFile; fileRef = BE5C0B9D287738E60043D0E4 /* SceneDelegate.swift */; };
 		BE5C0BA0287738E60043D0E4 /* PostsVC.swift in Sources */ = {isa = PBXBuildFile; fileRef = BE5C0B9F287738E60043D0E4 /* PostsVC.swift */; };
@@ -24,7 +23,6 @@
 
 /* Begin PBXFileReference section */
 		BE1E534E2878372400EC9BFA /* PostVC.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = PostVC.swift; sourceTree = "<group>"; };
-		BE1E5350287859FA00EC9BFA /* Extension.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = Extension.swift; sourceTree = "<group>"; };
 		BE5C0B98287738E60043D0E4 /* trainee-task.app */ = {isa = PBXFileReference; explicitFileType = wrapper.application; includeInIndex = 0; path = "trainee-task.app"; sourceTree = BUILT_PRODUCTS_DIR; };
 		BE5C0B9B287738E60043D0E4 /* AppDelegate.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = AppDelegate.swift; sourceTree = "<group>"; };
 		BE5C0B9D287738E60043D0E4 /* SceneDelegate.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = SceneDelegate.swift; sourceTree = "<group>"; };
@@ -80,7 +78,6 @@
 				BE5C0BA4287738E70043D0E4 /* Assets.xcassets */,
 				BE5C0BA6287738E70043D0E4 /* LaunchScreen.storyboard */,
 				BE5C0BA9287738E70043D0E4 /* Info.plist */,
-				BE1E5350287859FA00EC9BFA /* Extension.swift */,
 			);
 			path = "trainee-task";
 			sourceTree = "<group>";
@@ -192,7 +189,6 @@
 			isa = PBXSourcesBuildPhase;
 			buildActionMask = 2147483647;
 			files = (
-				BE1E5351287859FA00EC9BFA /* Extension.swift in Sources */,
 				BEA7B32E28773DD1008A820E /* Consts.swift in Sources */,
 				BE5C0BA0287738E60043D0E4 /* PostsVC.swift in Sources */,
 				BE5C0BB3287739620043D0E4 /* PostsManager.swift in Sources */,

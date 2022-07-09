@@ -11,6 +11,7 @@ class PostsVC: UIViewController {
     
     var posts = Posts()
     var post = Post()
+    var isAutomaticContent = false
     
     @IBOutlet weak var sorting: UISegmentedControl!
     @IBOutlet weak var tableView: UITableView!
@@ -47,7 +48,6 @@ class PostsVC: UIViewController {
     override func prepare(for segue: UIStoryboardSegue, sender: Any?) {
         if let destination = segue.destination as? PostVC {
             destination.post = post.currentPost
-            
         }
     }
 }
@@ -65,11 +65,23 @@ extension PostsVC: UITableViewDelegate, UITableViewDataSource {
     
     func tableView(_ tableView: UITableView, cellForRowAt indexPath: IndexPath) -> UITableViewCell {
         if let cell = tableView.dequeueReusableCell(withIdentifier: K.cellId, for: indexPath) as? PostsCell{
+            
             cell.postName.text = posts.postsArray[indexPath.row].title
             cell.postPreview.text = posts.postsArray[indexPath.row].preview_text
             cell.postLikes.text = String("❤️\(posts.postsArray[indexPath.row].likes_count)")
             
-            cell.but.addTarget(self, action: #selector(self.expandCollapse(sender:)), for: .touchUpInside)
+            cell.postPreview.numberOfLines = self.isAutomaticContent == false ? 2 : 0
+            if self.isAutomaticContent == false{
+                cell.but.setTitle("Expand", for: .normal)
+            }else {
+                cell.but.setTitle("Collapse", for: .normal)
+            }
+            
+            cell.button = {[weak self] in
+                self?.isAutomaticContent = !(self?.isAutomaticContent ?? false)
+                self?.tableView.reloadRows(at: [indexPath], with: .automatic)
+            }
+            
             
             let previousDate = Date(timeIntervalSince1970: TimeInterval(posts.postsArray[indexPath.row].timeshamp))
             let now = Date()
@@ -89,18 +101,18 @@ extension PostsVC: UITableViewDelegate, UITableViewDataSource {
         }
     }
     
-    @objc func expandCollapse(sender: UIButton) {
-        self.tableView.reloadData()
-    }
-    
     func tableView(_ tableView: UITableView, didSelectRowAt indexPath: IndexPath) {
         K.postId = K.iD[indexPath.row]
         post.urlString = "https://raw.githubusercontent.com/anton-natife/jsons/master/api/posts/\(K.postId).json"
         post.getPost {
-            DispatchQueue.main.async {
-                self.performSegue(withIdentifier: K.segue, sender: self)
+            DispatchQueue.main.async {[weak self] in
+                self?.performSegue(withIdentifier: K.segue, sender: self)
             }
         }
+    }
+    
+    func tableView(_ tableView: UITableView, heightForRowAt indexPath: IndexPath) -> CGFloat {
+        return UITableView.automaticDimension
     }
 }
 
