@@ -49,6 +49,16 @@
 /* End PBXFrameworksBuildPhase section */
 
 /* Begin PBXGroup section */
+		BE26B58A287A043E0065FD80 /* Model */ = {
+			isa = PBXGroup;
+			children = (
+				BEA7B32D28773DD1008A820E /* Consts.swift */,
+				BEA7B32F2877492A008A820E /* PostModel */,
+				BE5C0BB1287739250043D0E4 /* PostsModel */,
+			);
+			path = Model;
+			sourceTree = "<group>";
+		};
 		BE5C0B8F287738E60043D0E4 = {
 			isa = PBXGroup;
 			children = (
@@ -70,14 +80,11 @@
 			children = (
 				BE5C0B9B287738E60043D0E4 /* AppDelegate.swift */,
 				BE5C0B9D287738E60043D0E4 /* SceneDelegate.swift */,
-				BEA7B32D28773DD1008A820E /* Consts.swift */,
-				BEA7B32F2877492A008A820E /* PostModel */,
-				BE5C0BB1287739250043D0E4 /* PostsModel */,
+				BE5C0BA4287738E70043D0E4 /* Assets.xcassets */,
+				BE5C0BA9287738E70043D0E4 /* Info.plist */,
+				BE26B58A287A043E0065FD80 /* Model */,
 				BE5C0BAF2877390B0043D0E4 /* Controllers */,
 				BE5C0BB0287739150043D0E4 /* View */,
-				BE5C0BA4287738E70043D0E4 /* Assets.xcassets */,
-				BE5C0BA6287738E70043D0E4 /* LaunchScreen.storyboard */,
-				BE5C0BA9287738E70043D0E4 /* Info.plist */,
 			);
 			path = "trainee-task";
 			sourceTree = "<group>";
@@ -97,6 +104,7 @@
 				BE5C0BA1287738E60043D0E4 /* Main.storyboard */,
 				BE5C0BB8287739EC0043D0E4 /* PostsCell.swift */,
 				BE5C0BB9287739EC0043D0E4 /* PostsCell.xib */,
+				BE5C0BA6287738E70043D0E4 /* LaunchScreen.storyboard */,
 			);
 			path = View;
 			sourceTree = "<group>";
