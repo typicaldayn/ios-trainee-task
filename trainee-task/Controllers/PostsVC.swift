@@ -23,8 +23,6 @@ class PostsVC: UIViewController {
                 self.sortData()
             }
         }
-        tableView.rowHeight = UITableView.automaticDimension
-        tableView.estimatedRowHeight = 600
         tableView.register(UINib(nibName: K.nibName, bundle: nil), forCellReuseIdentifier: K.cellId)
         tableView.delegate = self
         tableView.dataSource = self
@@ -49,6 +47,7 @@ class PostsVC: UIViewController {
     override func prepare(for segue: UIStoryboardSegue, sender: Any?) {
         if let destination = segue.destination as? PostVC {
             destination.post = post.currentPost
+            
         }
     }
 }
@@ -91,18 +90,17 @@ extension PostsVC: UITableViewDelegate, UITableViewDataSource {
     }
     
     @objc func expandCollapse(sender: UIButton) {
-            self.tableView.reloadData()
+        self.tableView.reloadData()
     }
     
     func tableView(_ tableView: UITableView, didSelectRowAt indexPath: IndexPath) {
         K.postId = K.iD[indexPath.row]
         post.urlString = "https://raw.githubusercontent.com/anton-natife/jsons/master/api/posts/\(K.postId).json"
         post.getPost {
-        }
-        if post.currentPost?.post != nil {
-            performSegue(withIdentifier: K.segue, sender: self)
+            DispatchQueue.main.async {
+                self.performSegue(withIdentifier: K.segue, sender: self)
+            }
         }
     }
-    
 }
 

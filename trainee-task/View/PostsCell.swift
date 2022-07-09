@@ -9,6 +9,8 @@ import UIKit
 
 class PostsCell: UITableViewCell, UITextViewDelegate {
     
+    var postID = 0
+    
     @IBOutlet weak var textHeight: NSLayoutConstraint!
     @IBOutlet weak var but: UIButton!
     @IBOutlet weak var postDate: UILabel!
