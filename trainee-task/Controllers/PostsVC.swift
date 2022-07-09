@@ -65,20 +65,23 @@ extension PostsVC: UITableViewDelegate, UITableViewDataSource {
     
     func tableView(_ tableView: UITableView, cellForRowAt indexPath: IndexPath) -> UITableViewCell {
         if let cell = tableView.dequeueReusableCell(withIdentifier: K.cellId, for: indexPath) as? PostsCell{
+            
             cell.postName.text = posts.postsArray[indexPath.row].title
             cell.postPreview.text = posts.postsArray[indexPath.row].preview_text
             cell.postLikes.text = String("❤️\(posts.postsArray[indexPath.row].likes_count)")
-            cell.postPreview.numberOfLines = isAutomaticContent == false ? 2 : 0
-            if isAutomaticContent == false{
+            
+            cell.postPreview.numberOfLines = self.isAutomaticContent == false ? 2 : 0
+            if self.isAutomaticContent == false{
                 cell.but.setTitle("Expand", for: .normal)
             }else {
                 cell.but.setTitle("Collapse", for: .normal)
             }
-
+            
             cell.button = {[weak self] in
                 self?.isAutomaticContent = !(self?.isAutomaticContent ?? false)
-                self?.tableView.reloadData()
+                self?.tableView.reloadRows(at: [indexPath], with: .automatic)
             }
+            
             
             let previousDate = Date(timeIntervalSince1970: TimeInterval(posts.postsArray[indexPath.row].timeshamp))
             let now = Date()
