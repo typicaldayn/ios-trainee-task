@@ -48,21 +48,7 @@ class PostsVC: UIViewController {
     
     override func prepare(for segue: UIStoryboardSegue, sender: Any?) {
         if let destination = segue.destination as? PostVC {
-            
-            //        destination.postImage.image = UIImage(imageLiteralResourceName: specificPost!.postImage)
-            //        destination.postLikes.text = String(describing: specificPost?.likes_count)
-            //        destination.postText.text = specificPost?.text
-            //        destination.postName.text = specificPost?.title
-            //        let previousDate = Date(timeIntervalSince1970: TimeInterval(specificPost!.timeshamp))
-            //        let now = Date()
-            //        let formatter = DateComponentsFormatter()
-            //        formatter.unitsStyle = .brief
-            //        formatter.allowedUnits = [.day]
-            //        formatter.maximumUnitCount = 1
-            //        let stringDate = formatter.string(from: previousDate, to: now)
-            //        destination.postDate.text = stringDate
-            //        destination.id = specificPost!.postId
-            //        }
+            destination.post = post.currentPost
         }
     }
 }
@@ -110,11 +96,10 @@ extension PostsVC: UITableViewDelegate, UITableViewDataSource {
     
     func tableView(_ tableView: UITableView, didSelectRowAt indexPath: IndexPath) {
         K.postId = K.iD[indexPath.row]
-        print(post)
         post.urlString = "https://raw.githubusercontent.com/anton-natife/jsons/master/api/posts/\(K.postId).json"
         post.getPost {
         }
-        if post.currentPost != nil {
+        if post.currentPost?.post != nil {
             performSegue(withIdentifier: K.segue, sender: self)
         }
     }

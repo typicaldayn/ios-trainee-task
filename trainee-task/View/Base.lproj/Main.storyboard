@@ -71,21 +71,23 @@
                                     <imageView clipsSubviews="YES" userInteractionEnabled="NO" contentMode="scaleAspectFit" horizontalHuggingPriority="251" verticalHuggingPriority="251" translatesAutoresizingMaskIntoConstraints="NO" id="BFg-9q-Jsd">
                                         <rect key="frame" x="0.0" y="0.0" width="374" height="377"/>
                                     </imageView>
-                                    <stackView opaque="NO" contentMode="scaleToFill" axis="vertical" distribution="fillProportionally" translatesAutoresizingMaskIntoConstraints="NO" id="8ht-Fr-CaU">
+                                    <stackView opaque="NO" contentMode="scaleToFill" axis="vertical" translatesAutoresizingMaskIntoConstraints="NO" id="8ht-Fr-CaU">
                                         <rect key="frame" x="0.0" y="377" width="374" height="377"/>
                                         <subviews>
                                             <label opaque="NO" userInteractionEnabled="NO" contentMode="left" horizontalHuggingPriority="251" verticalHuggingPriority="251" text="Label" lineBreakMode="tailTruncation" numberOfLines="0" baselineAdjustment="alignBaselines" adjustsFontSizeToFit="NO" translatesAutoresizingMaskIntoConstraints="NO" id="brk-km-rRx">
-                                                <rect key="frame" x="0.0" y="0.0" width="374" height="95.5"/>
+                                                <rect key="frame" x="0.0" y="0.0" width="374" height="24"/>
                                                 <fontDescription key="fontDescription" type="system" weight="semibold" pointSize="20"/>
                                                 <nil key="textColor"/>
                                                 <nil key="highlightedColor"/>
                                             </label>
-                                            <label opaque="NO" userInteractionEnabled="NO" contentMode="left" horizontalHuggingPriority="251" verticalHuggingPriority="251" text="Label" textAlignment="natural" lineBreakMode="tailTruncation" numberOfLines="0" baselineAdjustment="alignBaselines" adjustsFontSizeToFit="NO" translatesAutoresizingMaskIntoConstraints="NO" id="byQ-Fd-85V">
-                                                <rect key="frame" x="0.0" y="95.5" width="374" height="231.5"/>
-                                                <fontDescription key="fontDescription" type="system" pointSize="17"/>
-                                                <nil key="textColor"/>
-                                                <nil key="highlightedColor"/>
-                                            </label>
+                                            <textView clipsSubviews="YES" multipleTouchEnabled="YES" contentMode="scaleToFill" alwaysBounceVertical="YES" showsHorizontalScrollIndicator="NO" indicatorStyle="black" bouncesZoom="NO" editable="NO" selectable="NO" translatesAutoresizingMaskIntoConstraints="NO" id="8dr-TO-xed">
+                                                <rect key="frame" x="0.0" y="24" width="374" height="303"/>
+                                                <color key="backgroundColor" systemColor="systemBackgroundColor"/>
+                                                <string key="text">Lorem ipsum dolor sit er elit lamet, consectetaur cillium adipisicing pecu, sed do eiusmod tempor incididunt ut labore et dolore magna aliqua. Ut enim ad minim veniam, quis nostrud exercitation ullamco laboris nisi ut aliquip ex ea commodo consequat. Duis aute irure dolor in reprehenderit in voluptate velit esse cillum dolore eu fugiat nulla pariatur. Excepteur sint occaecat cupidatat non proident, sunt in culpa qui officia deserunt mollit anim id est laborum. Nam liber te conscient to factor tum poen legum odioque civiuda.</string>
+                                                <color key="textColor" systemColor="labelColor"/>
+                                                <fontDescription key="fontDescription" type="system" pointSize="15"/>
+                                                <textInputTraits key="textInputTraits" autocapitalizationType="sentences"/>
+                                            </textView>
                                             <stackView opaque="NO" contentMode="scaleToFill" distribution="fillEqually" translatesAutoresizingMaskIntoConstraints="NO" id="UWt-7d-sgD">
                                                 <rect key="frame" x="0.0" y="327" width="374" height="50"/>
                                                 <subviews>
@@ -107,10 +109,6 @@
                                                 </constraints>
                                             </stackView>
                                         </subviews>
-                                        <constraints>
-                                            <constraint firstItem="UWt-7d-sgD" firstAttribute="top" secondItem="byQ-Fd-85V" secondAttribute="bottom" id="8fJ-zz-arw"/>
-                                            <constraint firstItem="byQ-Fd-85V" firstAttribute="top" secondItem="brk-km-rRx" secondAttribute="bottom" id="o7r-ur-Kqk"/>
-                                        </constraints>
                                     </stackView>
                                 </subviews>
                             </stackView>
@@ -132,7 +130,7 @@
                         <outlet property="postImage" destination="BFg-9q-Jsd" id="Yo4-hG-PGK"/>
                         <outlet property="postLikes" destination="9ba-hO-vXM" id="dPH-WO-7dd"/>
                         <outlet property="postName" destination="brk-km-rRx" id="BZx-4q-eqQ"/>
-                        <outlet property="postText" destination="byQ-Fd-85V" id="Hka-4q-44H"/>
+                        <outlet property="postText" destination="8dr-TO-xed" id="Ywj-wy-Sdx"/>
                     </connections>
                 </viewController>
                 <placeholder placeholderIdentifier="IBFirstResponder" id="2HM-M7-0Zu" userLabel="First Responder" customClass="UIResponder" sceneMemberID="firstResponder"/>
@@ -168,6 +166,9 @@
         </scene>
     </scenes>
     <resources>
+        <systemColor name="labelColor">
+            <color white="0.0" alpha="1" colorSpace="custom" customColorSpace="genericGamma22GrayColorSpace"/>
+        </systemColor>
         <systemColor name="systemBackgroundColor">
             <color white="1" alpha="1" colorSpace="custom" customColorSpace="genericGamma22GrayColorSpace"/>
         </systemColor>

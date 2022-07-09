@@ -10,7 +10,7 @@ import Foundation
 class Post {
 
     var urlString = ""
-    var currentPost: SpecificPost?
+    var currentPost: CurrentPost?
     
     struct CurrentPost: Codable{
         let post: SpecificPost
@@ -39,7 +39,7 @@ class Post {
             }
             do{
                 let post = try JSONDecoder().decode(CurrentPost.self, from: data!)
-                self.currentPost = post.post
+                self.currentPost = post
             }catch{
                 print(error.localizedDescription)
             }
