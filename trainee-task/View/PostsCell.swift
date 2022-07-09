@@ -11,7 +11,6 @@ class PostsCell: UITableViewCell {
     
     var button: (() -> ())?
     
-    @IBOutlet weak var textHeight: NSLayoutConstraint!
     @IBOutlet weak var but: UIButton!
     @IBOutlet weak var postDate: UILabel!
     @IBOutlet weak var postLikes: UILabel!
@@ -38,20 +37,11 @@ class PostsCell: UITableViewCell {
     }
     
     @IBAction func expandPressed(_ sender: UIButton) {
-        DispatchQueue.main.async {
-            self.button?()
-//            if self.postPreview.numberOfLines == 2{
-//                self.but.titleLabel?.text = "Collapse"
-//                self.textHeight.constant = 200
-//                self.postPreview.numberOfLines = 0
-//            }else{
-//                self.but.titleLabel?.text = "Expand"
-//                print(self.but.titleLabel?.text)
-//                self.textHeight.constant = 60
-//                self.postPreview.numberOfLines = 2
-//            }
+        DispatchQueue.main.async { [weak self] in
+            self?.button?()
         }
     }
 }
+
 
 
