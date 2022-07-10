@@ -20,8 +20,8 @@ class PostsVC: UIViewController {
         super.viewDidLoad()
         
         posts.getData {
-            DispatchQueue.main.async {
-                self.sortData()
+            DispatchQueue.main.async { [weak self] in
+                self?.sortData()
             }
         }
         tableView.register(UINib(nibName: K.nibName, bundle: nil), forCellReuseIdentifier: K.cellId)

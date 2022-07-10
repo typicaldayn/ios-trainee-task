@@ -22,7 +22,7 @@ class PostsCell: UITableViewCell {
         postName.numberOfLines = 2
         postPreview.numberOfLines = 2
         but.titleLabel?.text = "Expand"
-        but.backgroundColor = .lightGray
+        but.backgroundColor = .darkGray
         but.layer.cornerRadius = 15
         but.isHidden = false
     }
